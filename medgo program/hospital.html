@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedGo - Hospital Finder</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #e3f2fd, #e0f7fa);
+    }
+
+    header {
+        background: linear-gradient(90deg, #0d47a1, #00bfa5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .back-btn {
+        background: #00897b;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .back-btn:hover {
+        background: #00695c;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 15px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        transition: 0.3s;
+        border-left: 6px solid #00bfa5;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .hospital-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: #0d47a1;
+        margin-bottom: 8px;
+    }
+
+    .address {
+        color: #555;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .rating {
+        color: #ff9800;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    .map-btn {
+        background: #1565c0;
+        color: white;
+        border: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .map-btn:hover {
+        background: #0d47a1;
+    }
+
+    .call-btn {
+        background: #2e7d32;
+        color: white;
+        border: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .call-btn:hover {
+        background: #1b5e20;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    🏥 MedGo Hospital Finder – Salem District
+</header>
+
+<div class="container">
+
+    <button class="back-btn" onclick="goDashboard()">⬅ Back to Dashboard</button>
+
+    <div class="grid">
+
+        <!-- Hospital 1 -->
+        <div class="card">
+            <div class="hospital-name">Government Mohan Kumaramangalam Medical College Hospital</div>
+            <div class="address">📍 Steel Plant Road, Salem, Tamil Nadu 636030</div>
+            <div class="rating">⭐ 4.3 | Government Multi-Speciality</div>
+            <button class="map-btn" onclick="getDirections(11.6643,78.1460)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 2 -->
+        <div class="card">
+            <div class="hospital-name">Manipal Hospital Salem</div>
+            <div class="address">📍 Seelanaickenpatti Bypass, Salem, Tamil Nadu 636201</div>
+            <div class="rating">⭐ 4.6 | Private Multi-Speciality</div>
+            <button class="map-btn" onclick="getDirections(11.6976,78.1465)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 3 -->
+        <div class="card">
+            <div class="hospital-name">Neuro Foundation Hospital</div>
+            <div class="address">📍 Salem Steel Plant Road, Salem, Tamil Nadu 636030</div>
+            <div class="rating">⭐ 4.5 | Neurology Specialist</div>
+            <button class="map-btn" onclick="getDirections(11.6737,78.1334)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 4 -->
+        <div class="card">
+            <div class="hospital-name">Shanmuga Hospital</div>
+            <div class="address">📍 Saradha College Road, Salem, Tamil Nadu 636007</div>
+            <div class="rating">⭐ 4.2 | General Hospital</div>
+            <button class="map-btn" onclick="getDirections(11.6585,78.1652)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 5 -->
+        <div class="card">
+            <div class="hospital-name">Kauvery Hospital Salem</div>
+            <div class="address">📍 Alagapuram, Salem, Tamil Nadu 636004</div>
+            <div class="rating">⭐ 4.4 | Multi-Speciality</div>
+            <button class="map-btn" onclick="getDirections(11.6768,78.1468)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 6 -->
+        <div class="card">
+            <div class="hospital-name">SKS Hospital</div>
+            <div class="address">📍 Alagapuram, Salem, Tamil Nadu 636004</div>
+            <div class="rating">⭐ 4.3 | Multi-Speciality</div>
+            <button class="map-btn" onclick="getDirections(11.6762,78.1375)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 7 -->
+        <div class="card">
+            <div class="hospital-name">Sri Gokulam Hospital</div>
+            <div class="address">📍 Salem Main Road, Salem, Tamil Nadu</div>
+            <div class="rating">⭐ 4.2 | Private Hospital</div>
+            <button class="map-btn" onclick="getDirections(11.6801,78.1247)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 8 -->
+        <div class="card">
+            <div class="hospital-name">Lotus Hospital Salem</div>
+            <div class="address">📍 Fairlands, Salem, Tamil Nadu 636016</div>
+            <div class="rating">⭐ 4.1 | General & Emergency</div>
+            <button class="map-btn" onclick="getDirections(11.6672,78.1556)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 9 -->
+        <div class="card">
+            <div class="hospital-name">Surakksha Multispeciality Hospital</div>
+            <div class="address">📍 Hasthampatti, Salem, Tamil Nadu 636007</div>
+            <div class="rating">⭐ 4.0 | Emergency Care</div>
+            <button class="map-btn" onclick="getDirections(11.6649,78.1551)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 10 -->
+        <div class="card">
+            <div class="hospital-name">Salem Polyclinic Hospital</div>
+            <div class="address">📍 Five Roads, Salem, Tamil Nadu 636004</div>
+            <div class="rating">⭐ 4.1 | Clinic & Diagnostics</div>
+            <button class="map-btn" onclick="getDirections(11.6733,78.1391)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 11 -->
+        <div class="card">
+            <div class="hospital-name">Jaya Hospital Salem</div>
+            <div class="address">📍 Cherry Road, Salem, Tamil Nadu 636007</div>
+            <div class="rating">⭐ 4.0 | General Hospital</div>
+            <button class="map-btn" onclick="getDirections(11.6640,78.1630)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+        <!-- Hospital 12 -->
+        <div class="card">
+            <div class="hospital-name">Dharan Hospital</div>
+            <div class="address">📍 Seelanaickenpatti, Salem, Tamil Nadu 636201</div>
+            <div class="rating">⭐ 4.3 | Multi-Speciality</div>
+            <button class="map-btn" onclick="getDirections(11.7044,78.1479)">🧭 Get Directions</button>
+            <button class="call-btn" onclick="callHospital()">📞 Call</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function getDirections(lat, lng) {
+    // Opens real Google Maps Directions (NOT coordinate page)
+    const url = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lng + "&travelmode=driving";
+    window.open(url, "_blank");
+}
+
+function callHospital() {
+    alert("📞 Call feature can be connected to real hospital phone number in future (MedGo upgrade)");
+}
+
+function goDashboard() {
+    window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>

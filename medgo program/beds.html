@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Bed Availability - MedGo</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f7fb;
+}
+
+/* Header */
+.header{
+    background:linear-gradient(90deg,#1e3c72,#2a9d8f);
+    color:white;
+    padding:25px;
+    text-align:center;
+}
+
+/* Back Button */
+.back-btn{
+    position:absolute;
+    left:20px;
+    top:25px;
+    background:white;
+    color:#1e3c72;
+    border:none;
+    padding:8px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Container */
+.container{
+    padding:30px;
+}
+
+/* Hospital Cards */
+.hospital-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.hospital-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #2a9d8f;
+    transition:0.3s;
+}
+
+.hospital-card:hover{
+    transform:translateY(-5px);
+}
+
+.hospital-name{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.beds{
+    font-size:18px;
+    color:#2e7d32;
+    font-weight:bold;
+}
+
+.icu{
+    color:#d32f2f;
+    font-weight:bold;
+}
+
+.rating{
+    color:#ff9800;
+    font-weight:bold;
+    margin-top:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <h1>🛏 Hospital Bed Availability</h1>
+    <p>Live available beds in hospitals</p>
+</div>
+
+<div class="container">
+    <div class="hospital-grid">
+
+        <div class="hospital-card">
+            <div class="hospital-name">City Care Hospital</div>
+            <div class="beds">Available Beds: 24</div>
+            <div class="icu">ICU Beds: 6</div>
+            <div class="rating">⭐ Rating: 4.3/5</div>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-name">Sunrise Medical Center</div>
+            <div class="beds">Available Beds: 18</div>
+            <div class="icu">ICU Beds: 4</div>
+            <div class="rating">⭐ Rating: 4.6/5</div>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-name">Green Life Hospital</div>
+            <div class="beds">Available Beds: 12</div>
+            <div class="icu">ICU Beds: 3</div>
+            <div class="rating">⭐ Rating: 4.1/5</div>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-name">Apollo City Hospital</div>
+            <div class="beds">Available Beds: 30</div>
+            <div class="icu">ICU Beds: 8</div>
+            <div class="rating">⭐ Rating: 4.8/5</div>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-name">Global Health Hospital</div>
+            <div class="beds">Available Beds: 16</div>
+            <div class="icu">ICU Beds: 5</div>
+            <div class="rating">⭐ Rating: 4.4/5</div>
+        </div>
+
+        <div class="hospital-card">
+            <div class="hospital-name">LifeLine Multispeciality Hospital</div>
+            <div class="beds">Available Beds: 21</div>
+            <div class="icu">ICU Beds: 7</div>
+            <div class="rating">⭐ Rating: 4.5/5</div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function goBack(){
+    window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>

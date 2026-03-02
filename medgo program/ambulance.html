@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedGo - Ambulance Booking</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#e3f2fd,#f1f8e9);
+}
+
+header{
+    background: linear-gradient(90deg,#d32f2f,#ff7043);
+    color:white;
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.container{
+    padding:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.back-btn{
+    background:#00796b;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+    border-left:6px solid #d32f2f;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.driver-name{
+    font-size:20px;
+    font-weight:bold;
+    color:#b71c1c;
+}
+
+.details{
+    margin:8px 0;
+    color:#444;
+}
+
+.rating{
+    color:#ff9800;
+    font-weight:bold;
+}
+
+.call-btn{
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-right:10px;
+}
+
+.book-btn{
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🚑 MedGo Ambulance Booking – Nearby Drivers
+</header>
+
+<div class="container">
+
+<button class="back-btn" onclick="goBack()">⬅ Back to Dashboard</button>
+
+<div class="grid">
+
+<!-- Driver 1 -->
+<div class="card">
+<div class="driver-name">Ravi Kumar</div>
+<div class="details">🚑 Vehicle: ICU Ambulance</div>
+<div class="details">📍 Location: Salem Central</div>
+<div class="details">⏱ ETA: 8 Minutes</div>
+<div class="rating">⭐ 4.8 Rating</div>
+<button class="call-btn" onclick="callDriver('9876543210')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Ravi Kumar')">Book Now</button>
+</div>
+
+<!-- Driver 2 -->
+<div class="card">
+<div class="driver-name">Suresh</div>
+<div class="details">🚑 Vehicle: Basic Ambulance</div>
+<div class="details">📍 Location: Fairlands, Salem</div>
+<div class="details">⏱ ETA: 12 Minutes</div>
+<div class="rating">⭐ 4.6 Rating</div>
+<button class="call-btn" onclick="callDriver('9123456780')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Suresh')">Book Now</button>
+</div>
+
+<!-- Driver 3 -->
+<div class="card">
+<div class="driver-name">Arun</div>
+<div class="details">🚑 Vehicle: Oxygen Ambulance</div>
+<div class="details">📍 Location: Hasthampatti</div>
+<div class="details">⏱ ETA: 10 Minutes</div>
+<div class="rating">⭐ 4.7 Rating</div>
+<button class="call-btn" onclick="callDriver('9001122334')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Arun')">Book Now</button>
+</div>
+
+<!-- Driver 4 -->
+<div class="card">
+<div class="driver-name">Manoj</div>
+<div class="details">🚑 Vehicle: ICU Ambulance</div>
+<div class="details">📍 Location: Alagapuram</div>
+<div class="details">⏱ ETA: 15 Minutes</div>
+<div class="rating">⭐ 4.5 Rating</div>
+<button class="call-btn" onclick="callDriver('9556677880')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Manoj')">Book Now</button>
+</div>
+
+<!-- Driver 5 -->
+<div class="card">
+<div class="driver-name">Prakash</div>
+<div class="details">🚑 Vehicle: Emergency Ambulance</div>
+<div class="details">📍 Location: Kondalampatti</div>
+<div class="details">⏱ ETA: 18 Minutes</div>
+<div class="rating">⭐ 4.4 Rating</div>
+<button class="call-btn" onclick="callDriver('9445566778')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Prakash')">Book Now</button>
+</div>
+
+<!-- Driver 6 -->
+<div class="card">
+<div class="driver-name">Karthik</div>
+<div class="details">🚑 Vehicle: Basic Ambulance</div>
+<div class="details">📍 Location: Salem New Bus Stand</div>
+<div class="details">⏱ ETA: 9 Minutes</div>
+<div class="rating">⭐ 4.6 Rating</div>
+<button class="call-btn" onclick="callDriver('9887766554')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Karthik')">Book Now</button>
+</div>
+
+<!-- Driver 7 -->
+<div class="card">
+<div class="driver-name">Dinesh</div>
+<div class="details">🚑 Vehicle: ICU Ambulance</div>
+<div class="details">📍 Location: Seelanaickenpatti</div>
+<div class="details">⏱ ETA: 14 Minutes</div>
+<div class="rating">⭐ 4.7 Rating</div>
+<button class="call-btn" onclick="callDriver('9776655443')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Dinesh')">Book Now</button>
+</div>
+
+<!-- Driver 8 -->
+<div class="card">
+<div class="driver-name">Vijay</div>
+<div class="details">🚑 Vehicle: Oxygen Ambulance</div>
+<div class="details">📍 Location: Ammapet</div>
+<div class="details">⏱ ETA: 16 Minutes</div>
+<div class="rating">⭐ 4.5 Rating</div>
+<button class="call-btn" onclick="callDriver('9665544332')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Vijay')">Book Now</button>
+</div>
+
+<!-- Driver 9 -->
+<div class="card">
+<div class="driver-name">Saravanan</div>
+<div class="details">🚑 Vehicle: Emergency Ambulance</div>
+<div class="details">📍 Location: Gorimedu</div>
+<div class="details">⏱ ETA: 11 Minutes</div>
+<div class="rating">⭐ 4.6 Rating</div>
+<button class="call-btn" onclick="callDriver('9554433221')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Saravanan')">Book Now</button>
+</div>
+
+<!-- Driver 10 -->
+<div class="card">
+<div class="driver-name">Ajith</div>
+<div class="details">🚑 Vehicle: ICU + Ventilator Ambulance</div>
+<div class="details">📍 Location: Salem Junction</div>
+<div class="details">⏱ ETA: 7 Minutes (Nearest)</div>
+<div class="rating">⭐ 4.9 Rating</div>
+<button class="call-btn" onclick="callDriver('9009988776')">📞 Call</button>
+<button class="book-btn" onclick="bookAmbulance('Ajith')">Book Now</button>
+</div>
+
+</div>
+</div>
+
+<script>
+function goBack(){
+    window.location.href="dashboard.html";
+}
+
+function callDriver(number){
+    window.location.href = "tel:" + number;
+}
+
+function bookAmbulance(name){
+    alert("🚑 Ambulance Booked Successfully!\nDriver: " + name + "\nMedGo will arrive soon.");
+}
+</script>
+
+</body>
+</html>

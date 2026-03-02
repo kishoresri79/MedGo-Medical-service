@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedGo Login</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(rgba(0,102,204,0.8), rgba(0,180,150,0.8)),
+  url("https://images.unsplash.com/photo-1579684385127-1ef15d508118") no-repeat center/cover;
+}
+
+.login-container{
+  background:white;
+  width:380px;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  text-align:center;
+}
+
+.logo{
+  font-size:34px;
+  font-weight:bold;
+  color:#0d47a1;
+}
+
+.subtitle{
+  color:#009688;
+  margin-bottom:25px;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:12px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+input:focus{
+  border-color:#0d47a1;
+  outline:none;
+  box-shadow:0 0 6px rgba(13,71,161,0.3);
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(90deg,#0d47a1,#00bfa5);
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.03);
+}
+
+.footer{
+  margin-top:15px;
+  font-size:13px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+  <div class="logo">🩺 MedGo</div>
+  <div class="subtitle">Smart Healthcare Services</div>
+
+  <form onsubmit="return loginUser()">
+    <input 
+      type="tel" 
+      id="mobile" 
+      placeholder="Enter 10 digit mobile number"
+      maxlength="10"
+      required
+    >
+
+    <input 
+      type="password" 
+      id="password" 
+      placeholder="Enter Password"
+      required
+    >
+
+    <button type="submit">Login</button>
+  </form>
+
+  <div class="footer">
+    Hospitals • Medicines • Ambulance • Appointments
+  </div>
+</div>
+
+<script>
+function loginUser(){
+  const mobile = document.getElementById("mobile").value;
+
+  // Validate 10 digit mobile number
+  if(!/^[0-9]{10}$/.test(mobile)){
+    alert("Mobile number must be exactly 10 digits");
+    return false;
+  }
+
+  // Prototype login (redirect to dashboard)
+  window.location.href = "dashboard.html";
+  return false;
+}
+</script>
+
+</body>
+</html>

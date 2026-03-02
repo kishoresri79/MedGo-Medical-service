@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedGo Fast Medicine Store</title>
+
+<style>
+body{
+  font-family:Segoe UI, sans-serif;
+  margin:0;
+  background:#f2f8ff;
+}
+
+.header{
+  background:linear-gradient(90deg,#0d47a1,#00bfa5);
+  color:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.search{
+  padding:10px;
+  width:60%;
+  border-radius:8px;
+  border:none;
+  outline:none;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.08);
+  overflow:hidden;
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:contain;
+  background:#eef6ff;
+}
+
+.content{
+  padding:12px;
+}
+
+.price{
+  color:#009688;
+  font-weight:bold;
+  font-size:17px;
+}
+
+button{
+  padding:7px 12px;
+  margin:6px 4px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.cart{ background:#ff9800; color:white;}
+.buy{ background:#4caf50; color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h2>💊 MedGo Medicine Store</h2>
+  <input type="text" class="search" id="search" placeholder="Search medicines..." onkeyup="searchMed()">
+</div>
+
+<div class="grid" id="medicineList"></div>
+
+<script>
+// FAST: using lightweight local .webp images
+const imageMap = {
+  tablet: "images/tablet.webp",
+  syrup: "images/syrup.webp",
+  injection: "images/injection.webp",
+  capsule: "images/capsule.webp"
+};
+
+const medicines = [
+{name:"Paracetamol",price:20,use:"Fever & pain relief",type:"tablet"},
+{name:"Dolo 650",price:35,use:"High fever",type:"tablet"},
+{name:"Amoxicillin",price:85,use:"Bacterial infection",type:"capsule"},
+{name:"Ibuprofen",price:30,use:"Pain & inflammation",type:"tablet"},
+{name:"Cetirizine",price:15,use:"Allergy relief",type:"tablet"},
+{name:"Cough Syrup",price:95,use:"Cough relief",type:"syrup"},
+{name:"Vitamin Syrup",price:90,use:"Immunity booster",type:"syrup"},
+{name:"Insulin Injection",price:350,use:"Diabetes",type:"injection"},
+{name:"Azithromycin",price:120,use:"Infection",type:"capsule"},
+{name:"Multivitamin",price:110,use:"Health supplement",type:"tablet"}
+];
+
+function loadMedicines(list){
+  const container = document.getElementById("medicineList");
+  container.innerHTML = list.map(m => `
+    <div class="card">
+      <img 
+        src="${imageMap[m.type]}" 
+        loading="lazy" 
+        width="300" 
+        height="140" 
+        alt="${m.type}">
+      <div class="content">
+        <h3>${m.name}</h3>
+        <div class="price">₹${m.price}</div>
+        <p><b>Use:</b> ${m.use}</p>
+        <button class="cart" onclick="addCart('${m.name}')">Add to Cart</button>
+        <button class="buy" onclick="buyNow('${m.name}')">Buy Now</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function searchMed(){
+  const val = document.getElementById("search").value.toLowerCase();
+  const filtered = medicines.filter(m => m.name.toLowerCase().includes(val));
+  loadMedicines(filtered);
+}
+
+function addCart(name){
+  alert(name + " added to cart 🛒");
+}
+
+function buyNow(name){
+  alert("Buying " + name + " 💊");
+}
+
+// Initial Load
+loadMedicines(medicines);
+</script>
+
+</body>
+</html>

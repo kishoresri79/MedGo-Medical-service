@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedGo Smart Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(90deg, #1e3c72, #2a9d8f);
+    color: white;
+    padding: 30px;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+/* Container */
+.container {
+    padding: 30px;
+}
+
+/* Dashboard Cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.card p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Emergency Box */
+.emergency {
+    margin-top: 40px;
+    background: #ffe5e5;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.emergency h2 {
+    margin-top: 0;
+}
+
+.emergency li {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+/* Health Tips */
+.tips {
+    margin-top: 35px;
+}
+
+.tip-box {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="header">
+    <h1>🏥 Welcome to MedGo Dashboard</h1>
+    <p>Your smart healthcare partner for medicines, hospitals, beds & insurance</p>
+</div>
+
+<div class="container">
+
+    <!-- Main Dashboard Cards -->
+    <div class="card-grid">
+
+        <!-- Medicine Store -->
+        <div class="card" onclick="openMedicine()">
+            <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" loading="lazy">
+            <h3>Medicine Store</h3>
+            <p>Buy tablets, syrup, injections & capsules</p>
+        </div>
+
+        <!-- Hospital Finder -->
+        <div class="card" onclick="openHospital()">
+            <img src="https://cdn-icons-png.flaticon.com/512/2967/2967350.png" loading="lazy">
+            <h3>Hospital Finder</h3>
+            <p>Find nearby hospitals with location</p>
+        </div>
+
+        <!-- Doctor Appointment -->
+        <div class="card" onclick="openDoctor()">
+            <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" loading="lazy">
+            <h3>Doctor Appointment</h3>
+            <p>Book doctor appointment easily</p>
+        </div>
+
+        <!-- Ambulance Booking -->
+        <div class="card" onclick="openAmbulance()">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966485.png" loading="lazy">
+            <h3>Ambulance Booking</h3>
+            <p>Emergency ambulance with driver details</p>
+        </div>
+
+        <!-- Bed Availability (Opens New Page) -->
+        <div class="card" onclick="openBeds()">
+            <img src="https://cdn-icons-png.flaticon.com/512/4320/4320371.png" loading="lazy">
+            <h3>Bed Availability</h3>
+            <p>Check hospital bed availability</p>
+        </div>
+
+        <!-- Insurance Policy (Opens New Page) -->
+        <div class="card" onclick="openInsurance()">
+            <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" loading="lazy">
+            <h3>Insurance Policy</h3>
+            <p>View accepted insurance by hospitals</p>
+        </div>
+
+    </div>
+
+    <!-- Emergency Numbers -->
+    <div class="emergency">
+        <h2>🚨 Emergency Helpline Numbers (India)</h2>
+        <ul>
+            <li>📞 Ambulance: <b>108</b></li>
+            <li>📞 National Emergency: <b>112</b></li>
+            <li>📞 Medical Helpline: <b>104</b></li>
+            <li>📞 Women Helpline: <b>1091</b></li>
+            <li>📞 Child Helpline: <b>1098</b></li>
+        </ul>
+    </div>
+
+    <!-- Health Tips -->
+    <div class="tips">
+        <h2>💊 Daily Health Tips</h2>
+
+        <div class="tip-box">🥗 Eat healthy food and include fruits & vegetables daily.</div>
+        <div class="tip-box">💧 Drink at least 3-4 liters of water every day.</div>
+        <div class="tip-box">🏃 Exercise regularly for a healthy heart and body.</div>
+        <div class="tip-box">😴 Get 7-8 hours of sleep for better health.</div>
+        <div class="tip-box">🩺 Do regular health checkups to prevent diseases early.</div>
+    </div>
+
+</div>
+
+<script>
+function openMedicine() {
+    window.location.href = "medicine.html";
+}
+
+function openHospital() {
+    window.location.href = "hospital.html";
+}
+
+function openDoctor() {
+    window.location.href = "doctor.html";
+}
+
+function openAmbulance() {
+    window.location.href = "ambulance.html";
+}
+
+function openBeds() {
+    window.location.href = "beds.html";  // Opens bed availability page
+}
+
+function openInsurance() {
+    window.location.href = "insurance.html"; // Opens insurance page
+}
+</script>
+
+</body>
+</html>
